@@ -21,7 +21,7 @@ openai_api_key = "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"
 
 def doc_preprocessing():
     loader = DirectoryLoader(
-        'data2/',
+        'data/',
         glob='**/*.md',     # only the PDFs
         show_progress=True
     )
