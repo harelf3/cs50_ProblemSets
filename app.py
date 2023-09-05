@@ -12,17 +12,16 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-PINECONE_API_KEY = os.getenv('47dee970-f3c0-41bb-8ba5-a9984d40b98d')
-PINECONE_ENV = os.getenv('us-west4-gcp-free')
+PINECONE_API_KEY ="insert key"
+PINECONE_ENV ="insert key"
 # OPENAI_API_KEY = os.getenv('bjhDW59OrAxactxONM62T3BlbkFJgO0oFHE2yhYp7WLha2SG')
-openai_api_key = "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"
-# os.environ['OPENAI_API_KEY'] = "bjhDW59OrAxactxONM62T3BlbkFJgO0oFHE2yhYp7WLha2SG"
+openai_api_key = "insert key"
 
 
 def doc_preprocessing():
     loader = DirectoryLoader(
         'data/',
-        glob='**/*.md',     # only the PDFs
+        glob='**/*.pdf',     # only the PDFs
         show_progress=True
     )
     docs = loader.load()
@@ -39,16 +38,16 @@ def embedding_db():
     # we use the openAI embedding model
     embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
     pinecone.init(
-        api_key='47dee970-f3c0-41bb-8ba5-a9984d40b98d',      
-	    environment='us-west4-gcp-free'
+        api_key='insert',      
+	    environment='insert'
     )
-    index = pinecone.Index('myself')
+    index = pinecone.Index('index_name')
     st.info("works")
     docs_split = doc_preprocessing()
     doc_db = Pinecone.from_documents(
         docs_split, 
         embeddings, 
-        index_name='myself'
+        index_name='index_name'
     )
     
     return doc_db
