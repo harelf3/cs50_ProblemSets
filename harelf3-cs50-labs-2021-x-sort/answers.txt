@@ -1,0 +1,12 @@
+sort1 uses: bubble
+
+How do you know?: it has a better time in the sorted catagory then one and worst then other 
+
+sort2 uses: merge
+
+How do you know?: best times over all 
+
+sort3 uses: selection 
+
+How do you know?: didnt benefited from the sorted list in comperison to others 
+
